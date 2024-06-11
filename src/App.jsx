@@ -14,12 +14,12 @@ function App() {
 	let navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('https://6667b36af53957909ff4fd74.mockapi.io/api/lists?_expand=color&_embed=tasks').then(({data}) => {
+    axios.get('http://localhost:3001/lists?_expand=color&_embed=tasks').then(({data}) => {
       setLists(data);
     }).catch(error => {
 			console.error('There was an error fetching the lists:', error);
 		});
-    axios.get('https://6667b36af53957909ff4fd74.mockapi.io/api/colors').then(({data}) => {
+    axios.get('http://localhost:3001/colors').then(({data}) => {
       setColors(data);
     });
   }, []);
@@ -59,7 +59,7 @@ function App() {
     });
     setLists(newList);
     axios
-      .patch('https://6667b36af53957909ff4fd74.mockapi.io/api/tasks/' + taskObj.id, {
+      .patch('http://localhost:3001/tasks/' + taskObj.id, {
         text: newTaskText,
       })
       .catch(() => {
@@ -76,7 +76,7 @@ function App() {
         return item;
       });
       setLists(newList);
-      axios.delete('https://6667b36af53957909ff4fd74.mockapi.io/api/tasks/' + taskId).catch(() => {
+      axios.delete('http://localhost:3001/tasks/' + taskId).catch(() => {
         alert('Unable to delete task');
       });
     }
@@ -96,7 +96,7 @@ function App() {
     });
     setLists(newList);
     axios
-      .patch('https://6667b36af53957909ff4fd74.mockapi.io/api/tasks/' + taskId, {
+      .patch('http://localhost:3001/tasks/' + taskId, {
         completed,
       })
       .catch(() => {
