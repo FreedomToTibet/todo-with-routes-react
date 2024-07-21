@@ -16,7 +16,7 @@ const List = ({
 }) => {
   const removeList = (item) => {
     if (window.confirm('Are you sure you want to delete the list?')) {
-      axios.delete('http://localhost:3001/lists' + item.id).then(() => {
+      axios.delete('https://todo-with-routes-react-kn08jb73r-andrews-projects-f74b8ff5.vercel.app/api/lists' + item.id).then(() => {
         onRemove(item.id);
       });
     }
