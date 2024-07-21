@@ -12,7 +12,7 @@ server.use((req, res, next) => {
 });
 
 server.use(middlewares);
-server.use(router);
+server.use('/api', router); // Ensure the router is mounted on /api
 server.listen(3001, () => {
   console.log('JSON Server is running');
 });
