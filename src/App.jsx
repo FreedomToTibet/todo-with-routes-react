@@ -14,12 +14,12 @@ function App() {
 	let navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('https://todo-with-routes-react-3zg3r26xq-andrews-projects-f74b8ff5.vercel.app/api/lists?_expand=color&_embed=tasks').then(({data}) => {
+    axios.get('https://todo-with-routes-react.vercel.app/api/lists?_expand=color&_embed=tasks').then(({data}) => {
       setLists(data);
     }).catch(error => {
 			console.error('There was an error fetching the lists:', error);
 		});
-    axios.get('https://todo-with-routes-react-3zg3r26xq-andrews-projects-f74b8ff5.vercel.app/api/colors').then(({data}) => {
+    axios.get('https://todo-with-routes-react.vercel.app/api/colors').then(({data}) => {
       setColors(data);
     });
   }, []);
@@ -59,7 +59,7 @@ function App() {
     });
     setLists(newList);
     axios
-      .patch('https://todo-with-routes-react-3zg3r26xq-andrews-projects-f74b8ff5.vercel.app/api/tasks/' + taskObj.id, {
+      .patch('https://todo-with-routes-react.vercel.app/api/tasks/' + taskObj.id, {
         text: newTaskText,
       })
       .catch(() => {
@@ -76,7 +76,7 @@ function App() {
         return item;
       });
       setLists(newList);
-      axios.delete('https://todo-with-routes-react-3zg3r26xq-andrews-projects-f74b8ff5.vercel.app/api/tasks/' + taskId).catch(() => {
+      axios.delete('https://todo-with-routes-react.vercel.app/api/tasks/' + taskId).catch(() => {
         alert('Unable to delete task');
       });
     }
@@ -96,7 +96,7 @@ function App() {
     });
     setLists(newList);
     axios
-      .patch('https://todo-with-routes-react-3zg3r26xq-andrews-projects-f74b8ff5.vercel.app/api/tasks/' + taskId, {
+      .patch('https://todo-with-routes-react.vercel.app/api/tasks/' + taskId, {
         completed,
       })
       .catch(() => {
